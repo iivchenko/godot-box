@@ -1,0 +1,144 @@
+Q&A:
+
+Q: What size of the screen to choose?
+
+Q: What size for the player asset to choose?
+
+Q: What is the maximun number of ships I plan to put on the screen (with and height)
+
+Q: Tools. What Kind of tools I need: to create or add-ons to use from store
+
+Q: Do I need particles effect to make rocket explosion?
+
+Q: Do I need particles effect to make ship(player, enemy) explosion?
+
+Q: Do I need particles effect for blaster got the enemy?
+
+Q: Do I need particles effect for raycast got enemy?
+
+Q: Do I need a unit testing here? I saw eventualy an add-on that makes unit tests possible
+
+Q: Techniques to test levels??
+
+Q: Do I need sound effects for ship movement?
+
+TASKS:
+==> MVP v0.1:
+Goal: Make some quick playeble prototype to see if it works.
+  - Define physics layers for player, enemies, player bullets, enemy bullets, boosters
+  - Implement "player" (left rigth move; fire; not leaving the scren)
+  - Implement simple enemy ships (move; fire)
+  - Implement simple enemy fleet
+  - Implement bullets
+	  - Distinguish enemy bullet form player bullet
+	  - Bullet life time ( creage an Area2D to cover all the gameplay zone and if bullet leaves the zone then just remove it)
+  
+==> Skeleton v0.2:
+ - Set Main Menu skeleton with play and exit buttons and version 
+ - Set player#1
+ - Set player#2
+ - Set enemy ship
+ - Implement shared life pool
+ - Set Level victory/defeat skeleton
+ - Set Game victory/defeat skeleton
+ - Set global difficulties (easy, normal, hard, night mare)
+ - Set HUD (lifes and scores)
+ 
+==> Level#01 v0.3:
+ - Implement player 1 model
+ - Implement player 2 model 
+ - Implement light_battle_ship enemy
+ - Implement level0001
+ - Implement Main Menu
+ - Implement blaster weapon
+ - Implement life boosters
+ - Implement blaster ammo boosters
+ - Add a script to open and edit the project
+ 
+==> Level#02 v0.4 
+ - Implement heavy_battle_ship
+ - Implement level0002
+ - Set level_blank
+ - Implement speed boosters
+ 
+==> Level#03 v0.5
+ - Set level_custom
+ - Update level_blank
+ - Implement level0003
+ - Implement commander_ship
+   - Attacker ship AI. Implement path finding to make nice and dangerous attact to on player
+ - Implement rocket boosters
+ 
+==> Level#04 v0.6
+ - Implement level0004
+ - Update level_blank
+ - Update level_custom
+ - Implement jocker boosters
+ - Change icon
+ - Implement splash screen
+ 
+==> Level#05 v0.7
+ - Implement level0005
+ - Implement shield_ship
+ - Update level_blank
+ - Update level_custom
+ - Implement laser boosters
+ - Create HTML Game export
+ - Create Winows Game export
+ - Create Linux Game export
+ 
+==> Level#06 v0.8
+ - Implement level0006
+ - Update level_blank
+ - Update level_custom
+ - Implemetn shield boosters
+ - Implement Level Victory Screen + scores
+ 
+==> Level#07 v0.9
+ - Implement level0007
+ - Implement charger_ship
+ - Update level_blank
+ - Update level_custom
+ - Implement charger boosters
+ - Implement Level Defeat Screen + scores
+ 
+==> Level#08 v0.10
+ - Implement level0008
+ - Update level_blank
+ - Update level_custom
+ - Implement Game Victory Screen + credits
+ 
+==> Level#09 v0.11
+ - Implement level0009 
+ - Implement mother_ship
+ - Update level_blank
+ - Update level_custom
+ - Implement Game Defeat Screen
+
+==> Level#10 v0.12
+ - Implement boss_ship
+ - Implement level0010 + Boss fight music theme
+ - Update level_blank
+ - Update level_custom
+ 
+===> v1.0
+ - Update game readme file
+    - Name
+	- Description
+	- Screen shot
+	- Features	
+	- Insttruction on how to play
+	- License
+ - Remove design file holders
+	
+===> To Mobile v1.1:
+ - Port to Android
+ - Add analog sticks to the screen
+
+- Other
+  - Implement main menu background music
+  - Implement levels backgroun music
+  - Implement background space paralaxing stuff like stars, planets, asteroids, sun etc.  
+  - Implement movement prediction algoritgm for the NIGHTMARE mode
+  - Add nice pixel art font
+  - Add Change log

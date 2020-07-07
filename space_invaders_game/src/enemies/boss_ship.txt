@@ -1,0 +1,18 @@
+Lives: 200
+Shield: 50
+Feature: realy tough guy; very big on the screen; can raid the player; has copule different phases; shoots blaster; shoots laser; shoots rockets etc.
+
+states: 
+IDLE
+FLY
+DIE
+
+Animations:
+Own:
+IDLE
+FLY
+
+Shared:
+FIRE
+EXPLODE
+SHIELD_EFFECT

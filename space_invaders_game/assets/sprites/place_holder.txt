@@ -1,0 +1,3 @@
+player ship
+regular enemy ship
+strong enemy ship

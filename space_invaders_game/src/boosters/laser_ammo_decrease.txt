@@ -1,0 +1,1 @@
+Decreases ammo of the players laser

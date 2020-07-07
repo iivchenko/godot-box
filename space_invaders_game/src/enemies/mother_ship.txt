@@ -1,0 +1,22 @@
+Lives: 50
+Shield: 30
+Feature: produces new ships;
+  - Speed: anjustable
+  - Introduce a limitation on crated ships
+
+states: 
+IDLE
+FLY
+DIE
+PRODUCE_NEW_SHIP
+
+Animations:
+Own:
+IDLE
+FLY
+PRODUCE_NEW_SHIP
+
+Shared:
+FIRE
+EXPLODE
+SHIELD_EFFECT

@@ -1,0 +1,18 @@
+Lives: 15
+Shield: 0
+Feature: Creates shield that covers an area and protects other ships; 100 shild units
+
+states: 
+IDLE
+FLY
+DIE
+
+Animations:
+Own:
+IDLE
+FLY
+
+Shared:
+FIRE
+EXPLODE
+SHIELD_EFFECT

@@ -1,0 +1,18 @@
+Lives: 15
+Shield: 0
+Feature: charges shields of the specified ships; Can chage only one ship at a time so schedule be priority; Charging speed 5 units/sec
+
+states: 
+IDLE
+FLY
+DIE
+CHARGE
+
+Animations:
+Own:
+IDLE
+FLY
+
+Shared:
+FIRE
+EXPLODE

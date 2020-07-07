@@ -1,0 +1,3 @@
+Regular players weapon
+
+Damage: 10

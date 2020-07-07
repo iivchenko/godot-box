@@ -1,0 +1,10 @@
+agenda:
+black - regular ship
+gray - strong ship
+blue - shield ship
+green - charge ship
+read - commander ship
+purpul -  mother ship
+yellow - boos ship
+
+each level will have fleet global AI

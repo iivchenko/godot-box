@@ -1,0 +1,18 @@
+Lives: 10
+Shield: 0
+Features: -
+
+states: 
+IDLE
+FLY
+DIE
+
+Animations:
+Own:
+IDLE
+FLY
+
+Shared:
+FIRE
+EXPLODE
+

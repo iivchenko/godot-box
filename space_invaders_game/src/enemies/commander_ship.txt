@@ -1,0 +1,18 @@
+Lives: 30
+Shield: 20
+Feature: Can fly and attack player; Control other ships during raid on player and commands them to fire
+
+states: 
+IDLE
+FLY
+DIE
+
+Animations:
+Own:
+IDLE
+FLY
+
+Shared:
+FIRE
+EXPLODE
+SHIELD_EFFECT

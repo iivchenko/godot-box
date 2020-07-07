@@ -1,0 +1,2 @@
+This is a dummy for to build manally future levels. 
+This one should not be included into final game.
