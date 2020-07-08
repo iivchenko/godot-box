@@ -1,10 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/proto_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/proto_enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/proto_bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/proto_bullet_main.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
 
 [node name="ProtoScene" type="Node2D"]
+
+[node name="Boundaries" type="Node2D" parent="."]
+position = Vector2( 320, 368 )
+
+[node name="Left" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( -328, -16 )
+collision_mask = 2
+
+[node name="Body" type="CollisionShape2D" parent="Boundaries/Left"]
+shape = SubResource( 1 )
+
+[node name="Right" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( 328, -16 )
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Body" type="CollisionShape2D" parent="Boundaries/Right"]
+shape = SubResource( 2 )
 
 [node name="Fleet" type="Node2D" parent="."]
 
@@ -206,5 +232,12 @@ position = Vector2( 368, 224 )
 [node name="ProtoBullet" parent="Fleet" instance=ExtResource( 3 )]
 position = Vector2( 320, 304 )
 
-[node name="ProtoPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 320, 344 )
+[node name="ProtoPlayer1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 296, 344 )
+_player = "player1"
+_color = Color( 0.945098, 1, 0, 1 )
+
+[node name="ProtoPlayer2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 336, 344 )
+_player = "player2"
+_color = Color( 0.0588235, 0.827451, 0.756863, 1 )
