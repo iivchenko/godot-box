@@ -1,3 +1,210 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/proto_player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/proto_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/proto_bullet.tscn" type="PackedScene" id=3]
 
 [node name="ProtoScene" type="Node2D"]
+
+[node name="Fleet" type="Node2D" parent="."]
+
+[node name="ProtoEnemy1" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 32, 32 )
+
+[node name="ProtoEnemy2" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 80, 32 )
+
+[node name="ProtoEnemy3" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 128, 32 )
+
+[node name="ProtoEnemy4" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 176, 32 )
+
+[node name="ProtoEnemy9" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 416, 32 )
+
+[node name="ProtoEnemy10" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 464, 32 )
+
+[node name="ProtoEnemy11" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 512, 32 )
+
+[node name="ProtoEnemy12" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 560, 32 )
+
+[node name="ProtoEnemy13" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 608, 32 )
+
+[node name="ProtoEnemy5" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 224, 32 )
+
+[node name="ProtoEnemy6" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 272, 32 )
+
+[node name="ProtoEnemy7" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 320, 32 )
+
+[node name="ProtoEnemy8" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 368, 32 )
+
+[node name="ProtoEnemy14" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 32, 80 )
+
+[node name="ProtoEnemy15" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 80, 80 )
+
+[node name="ProtoEnemy16" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 128, 80 )
+
+[node name="ProtoEnemy17" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 176, 80 )
+
+[node name="ProtoEnemy18" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 416, 80 )
+
+[node name="ProtoEnemy19" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 464, 80 )
+
+[node name="ProtoEnemy20" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 512, 80 )
+
+[node name="ProtoEnemy21" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 560, 80 )
+
+[node name="ProtoEnemy22" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 608, 80 )
+
+[node name="ProtoEnemy23" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 224, 80 )
+
+[node name="ProtoEnemy24" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 272, 80 )
+
+[node name="ProtoEnemy25" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 320, 80 )
+
+[node name="ProtoEnemy26" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 368, 80 )
+
+[node name="ProtoEnemy27" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 32, 128 )
+
+[node name="ProtoEnemy28" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 80, 128 )
+
+[node name="ProtoEnemy29" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 128, 128 )
+
+[node name="ProtoEnemy30" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 176, 128 )
+
+[node name="ProtoEnemy31" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 416, 128 )
+
+[node name="ProtoEnemy32" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 464, 128 )
+
+[node name="ProtoEnemy33" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 512, 128 )
+
+[node name="ProtoEnemy34" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 560, 128 )
+
+[node name="ProtoEnemy35" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 608, 128 )
+
+[node name="ProtoEnemy36" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 224, 128 )
+
+[node name="ProtoEnemy37" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 272, 128 )
+
+[node name="ProtoEnemy38" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 320, 128 )
+
+[node name="ProtoEnemy39" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 368, 128 )
+
+[node name="ProtoEnemy40" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 32, 176 )
+
+[node name="ProtoEnemy41" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 80, 176 )
+
+[node name="ProtoEnemy42" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 128, 176 )
+
+[node name="ProtoEnemy43" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 176, 176 )
+
+[node name="ProtoEnemy44" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 416, 176 )
+
+[node name="ProtoEnemy45" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 464, 176 )
+
+[node name="ProtoEnemy46" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 512, 176 )
+
+[node name="ProtoEnemy47" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 560, 176 )
+
+[node name="ProtoEnemy48" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 608, 176 )
+
+[node name="ProtoEnemy49" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 224, 176 )
+
+[node name="ProtoEnemy50" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 272, 176 )
+
+[node name="ProtoEnemy51" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 320, 176 )
+
+[node name="ProtoEnemy52" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 368, 176 )
+
+[node name="ProtoEnemy53" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 32, 224 )
+
+[node name="ProtoEnemy54" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 80, 224 )
+
+[node name="ProtoEnemy55" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 128, 224 )
+
+[node name="ProtoEnemy56" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 176, 224 )
+
+[node name="ProtoEnemy57" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 416, 224 )
+
+[node name="ProtoEnemy58" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 464, 224 )
+
+[node name="ProtoEnemy59" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 512, 224 )
+
+[node name="ProtoEnemy60" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 560, 224 )
+
+[node name="ProtoEnemy61" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 608, 224 )
+
+[node name="ProtoEnemy62" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 224, 224 )
+
+[node name="ProtoEnemy63" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 272, 224 )
+
+[node name="ProtoEnemy64" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 320, 224 )
+
+[node name="ProtoEnemy65" parent="Fleet" instance=ExtResource( 2 )]
+position = Vector2( 368, 224 )
+
+[node name="ProtoBullet" parent="Fleet" instance=ExtResource( 3 )]
+position = Vector2( 320, 304 )
+
+[node name="ProtoPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 344 )
