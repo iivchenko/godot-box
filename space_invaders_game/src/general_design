@@ -1,26 +1,39 @@
 Q&A:
 
 Q: What size of the screen to choose?
+A: Screen size 640x360. I want pixel art but to to squary
 
-Q: What size for the player asset to choose?
+Q: What size for the ships to choose?
+A: 32x32 with posibility to add some interesting details and get not to pixelated look on and not to boring as 16x16 an
 
 Q: What is the maximun number of ships I plan to put on the screen (with and height)
+A: Width: 16 units; Height: 9 units
 
 Q: Tools. What Kind of tools I need: to create or add-ons to use from store
 
 Q: Do I need particles effect to make rocket explosion?
+A: Lets train art skils and do animation.
 
 Q: Do I need particles effect to make ship(player, enemy) explosion?
+A: Lets train art skils and do animation.
 
 Q: Do I need particles effect for blaster got the enemy?
+A: Lets train art skils and do animation.
 
 Q: Do I need particles effect for raycast got enemy?
+A: Lets train art skils and make explosion as animation.
 
 Q: Do I need a unit testing here? I saw eventualy an add-on that makes unit tests possible
+A: Looks like GUT is the answer (https://github.com/bitwes/Gut) but may be WAT also (https://github.com/CodeDarigan/WAT/)
 
 Q: Techniques to test levels??
 
 Q: Do I need sound effects for ship movement?
+A: Lets say no as ther will be background music and laser shots fjrom player 1 and player 2 and enemies and explosions etc.
+
+Q: How to make music an sfx?
+A: list
+    - https://www.youtube.com/watch?v=GJRMmJnpknY
 
 TASKS:
 ==> MVP v0.1:
@@ -34,6 +47,9 @@ Goal: Make some quick playeble prototype to see if it works.
 	  - Bullet life time ( creage an Area2D to cover all the gameplay zone and if bullet leaves the zone then just remove it)
   
 ==> Skeleton v0.2:
+ - Set game tests
+  - https://github.com/bitwes/Gut 
+  - https://saltares.com/games/run-godot-tests-ci-travis/
  - Set Main Menu skeleton with play and exit buttons and version 
  - Set player#1
  - Set player#2
@@ -84,6 +100,8 @@ Goal: Make some quick playeble prototype to see if it works.
  - Update level_custom
  - Implement laser boosters
  - Create HTML Game export
+	- Think about GLES2 or GLES3 (https://docs.godotengine.org/en/stable/tutorials/misc/gles2_gles3_differences.html)
+	- good tutorial https://www.youtube.com/watch?v=Vc6Ce1G84qA
  - Create Winows Game export
  - Create Linux Game export
  
@@ -142,3 +160,67 @@ Goal: Make some quick playeble prototype to see if it works.
   - Implement movement prediction algoritgm for the NIGHTMARE mode
   - Add nice pixel art font
   - Add Change log
+  
+==> Plugins
+Graphics
+TexturePacker https://godotengine.org/asset-library/asset/169
+Font importer https://godotengine.org/asset-library/asset/598
+Trail system https://godotengine.org/asset-library/asset/636
+Color palleter https://godotengine.org/asset-library/asset/632
+Piskel importer https://godotengine.org/asset-library/asset/625
+https://godotengine.org/asset-library/asset/469
+https://godotengine.org/asset-library/asset/371
+
+File System
+https://godotengine.org/asset-library/asset/365
+
+
+Audio 
+https://godotengine.org/asset-library/asset/299
+https://godotengine.org/asset-library/asset/658
+https://godotengine.org/asset-library/asset/526
+https://godotengine.org/asset-library/asset/361
+
+Debug
+Debug overlay https://godotengine.org/asset-library/asset/645
+Scene commens https://godotengine.org/asset-library/asset/613
+Plugin maker https://godotengine.org/asset-library/asset/490
+https://godotengine.org/asset-library/asset/565
+
+Mobile
+Touch controls https://godotengine.org/asset-library/asset/398
+Touch controls https://godotengine.org/asset-library/asset/591
+Touch controls https://godotengine.org/asset-library/asset/504
+Touch controls https://godotengine.org/asset-library/asset/473s
+Ssample gaem https://godotengine.org/asset-library/asset/622
+Debug touch https://godotengine.org/asset-library/asset/142
+
+Logic
+FSM https://godotengine.org/asset-library/asset/516
+FSM https://godotengine.org/asset-library/asset/55
+Logger https://godotengine.org/asset-library/asset/618
+
+Code 
+Code snippets https://godotengine.org/asset-library/asset/577
+Bunch of classes https://godotengine.org/asset-library/asset/82
+
+Editor
+Layout stuff https://godotengine.org/asset-library/asset/587
+Scene paletter https://godotengine.org/asset-library/asset/600
+Command palete https://godotengine.org/asset-library/asset/552
+
+Other
+Charts https://godotengine.org/asset-library/asset/643
+Metadata https://godotengine.org/asset-library/asset/637
+GDGotm  https://godotengine.org/asset-library/asset/621
+Quick scenes https://godotengine.org/asset-library/asset/660
+https://godotengine.org/asset-library/asset/545
+https://godotengine.org/asset-library/asset/517
+https://godotengine.org/asset-library/asset/496
+https://godotengine.org/asset-library/asset/320
+https://godotengine.org/asset-library/asset/417
+https://godotengine.org/asset-library/asset/103
+https://godotengine.org/asset-library/asset/282
+
+IDEAS
+Implement convoy game of life
