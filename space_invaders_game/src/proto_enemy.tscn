@@ -34,7 +34,7 @@ func shoot() -> void:
 func damage(damage: int) -> void:
 	_lifes -= damage
 	
-	if _lifes <= 0:
+	if _lifes <= 0:	
 		queue_free()
 "
 
