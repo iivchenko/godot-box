@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/proto_enemy.tscn" type="PackedScene" id=2]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 var PlayerScene = preload(\"res://src/proto_player.tscn\")
@@ -75,17 +75,17 @@ func _on_CheckFleetTimer_timeout() -> void:
 			print(\"Fail to reload scene!\")
 "
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 320, 8 )
 
 [node name="ProtoScene" type="Node2D"]
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="Boundaries" type="Node2D" parent="."]
 position = Vector2( 320, 368 )
@@ -99,7 +99,7 @@ position = Vector2( -328, -16 )
 collision_mask = 2
 
 [node name="Body" type="CollisionShape2D" parent="Boundaries/Left"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Right" type="StaticBody2D" parent="Boundaries"]
 position = Vector2( 328, -16 )
@@ -109,7 +109,7 @@ __meta__ = {
 }
 
 [node name="Body" type="CollisionShape2D" parent="Boundaries/Right"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="LossersArea" type="Area2D" parent="."]
 position = Vector2( 320, 344 )

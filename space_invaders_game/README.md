@@ -1,4 +1,4 @@
-# Space Ivaders
+# Space Invaders
 - Description
 - Screen shot
 - Features
