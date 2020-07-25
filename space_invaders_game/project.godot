@@ -8,16 +8,35 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "MainScene",
+"language": "GDScript",
+"path": "res://src/main.gd"
+} ]
 _global_script_class_icons={
-
+"MainScene": ""
 }
+
+[WAT]
+
+Test_Directory="res://tests"
+Results_Directory="res://tests/results/WAT"
+Minimize_Window_When_Running_Tests=false
+Tags=PoolStringArray(  )
+Display=8
 
 [application]
 
 config/name="Space Invaders"
 config/description="The clone of the famous game"
+run/main_scene="res://src/main.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://src/global.gd"
 
 [display]
 
@@ -25,6 +44,10 @@ window/size/width=640
 window/size/height=360
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
 
 [input]
 
@@ -88,4 +111,5 @@ player2_fire_second={
 [rendering]
 
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

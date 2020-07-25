@@ -5,6 +5,8 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
+const GAME_TYPE = preload(\"res://src/game_type.gd\")
+
 var PlayerScene = preload(\"res://src/proto_player.tscn\")
 
 onready var _spawner1 = $Player1Spawner
@@ -16,8 +18,12 @@ func _ready() -> void:
 	_rng = RandomNumberGenerator.new()
 	_rng.randomize()
 	
-	_add_player1()
-	_add_player2()
+	match Global.game_type:
+		GAME_TYPE.ONE_PLAYER:
+			_add_player1()
+		GAME_TYPE.TWO_PLAYERS:
+			_add_player1()
+			_add_player2()
 	
 func _add_player1() -> void:
 	var player = PlayerScene.instance()

@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/main.gd" type="Script" id=1]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 73.6222
+margin_right = 48.0
+margin_bottom = 87.6222
+text = "Space Invaders"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -34.0
+margin_right = 35.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayOneBtn" type="Button" parent="Menu"]
+margin_right = 70.0
+margin_bottom = 20.0
+text = "1 Player"
+
+[node name="PlayTwoBtn" type="Button" parent="Menu"]
+margin_top = 24.0
+margin_right = 70.0
+margin_bottom = 44.0
+text = "2 Players"
+
+[node name="ExitBtn" type="Button" parent="Menu"]
+margin_top = 48.0
+margin_right = 70.0
+margin_bottom = 68.0
+text = "Exit"
+
+[node name="Version" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -14.0
+text = "v0.2.0"
