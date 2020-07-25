@@ -8,6 +8,7 @@ export var _main_wepon_max_reload_time = 0.15
 export var _second_wepon_max_reload_time = 0.25
 export var _max_life = 1
 export var _color = Color.white
+export var _target = ""
 
 var _life = 0
 var _velocity = Vector2.ZERO
@@ -28,21 +29,25 @@ func move(direction: Vector2) -> void:
 
 func fire(fire) -> void:
 	if fire == "main" and _main_wepon_reload_time <= 0.0:
+		var direction = ($ShootingPoint.global_position - global_position).normalized()
 		_main_wepon_reload_time = _main_wepon_max_reload_time
 		var bullet = Bullet.instance()
+		bullet.direction = direction
 		bullet._color = Color.blue
 		bullet._damage = 1
 		bullet._max_speed = 300
-		bullet._target = "enemy"
+		bullet._target = _target
 		bullet.global_position = _shooting_point.global_position
 		get_tree().root.add_child(bullet)
 	elif fire == "second" and _second_wepon_reload_time <= 0.0:
+		var direction = ($ShootingPoint.global_position - global_position).normalized()
 		_second_wepon_reload_time = _second_wepon_max_reload_time
 		var bullet = Bullet.instance()
+		bullet.direction = direction
 		bullet._color = Color.green
 		bullet._damage = 5
 		bullet._max_speed = 100
-		bullet._target = "enemy"
+		bullet._target = _target
 		bullet.global_position = _shooting_point.global_position
 		get_tree().root.add_child(bullet)
 

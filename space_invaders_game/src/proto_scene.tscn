@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/proto_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ship.tscn" type="PackedScene" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -25,10 +25,12 @@ func _ready() -> void:
 		GAME_TYPE.TWO_PLAYERS:
 			_add_player1()
 			_add_player2()
-	
+
+
 func _add_player1() -> void:
 	var ship = Ship.instance()
 	ship._color = Color.yellow
+	ship._target = \"enemy\"
 	ship.global_position = _spawner1.global_position
 	ship.connect(\"died\", self, \"_on_player1_died\")
 	
@@ -44,6 +46,7 @@ func _add_player1() -> void:
 func _add_player2() -> void:
 	var ship = Ship.instance()
 	ship._color = Color.aqua
+	ship._target = \"enemy\"
 	ship.global_position = _spawner2.global_position
 	ship.connect(\"died\", self, \"_on_player2_died\")
 	
@@ -69,7 +72,7 @@ func _on_FireTimer_timeout() -> void:
 	if ships.size() > 0:
 		var index = _rng.randf_range(0, ships.size() - 1)
 		
-		ships[index].shoot()
+		ships[index].fire(\"main\")
 
 
 func _on_MoveTimer_timeout() -> void:
@@ -142,200 +145,590 @@ shape = SubResource( 4 )
 
 [node name="Fleet" type="Node2D" parent="."]
 
-[node name="ProtoEnemy1" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy1" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 32, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy2" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy2" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 80, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy3" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy3" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 128, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy4" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy4" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 176, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy9" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 416, 32 )
-
-[node name="ProtoEnemy10" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 464, 32 )
-
-[node name="ProtoEnemy11" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 512, 32 )
-
-[node name="ProtoEnemy12" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 560, 32 )
-
-[node name="ProtoEnemy13" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 608, 32 )
-
-[node name="ProtoEnemy5" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy5" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 224, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy6" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy6" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 272, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy7" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy7" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 320, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy8" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy8" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 368, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy14" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy9" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 416, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy10" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 464, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy11" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 512, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy12" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 560, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy13" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 608, 32 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy14" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 32, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy15" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy15" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 80, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy16" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy16" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 128, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy17" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy17" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 176, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy18" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 416, 80 )
-
-[node name="ProtoEnemy19" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 464, 80 )
-
-[node name="ProtoEnemy20" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 512, 80 )
-
-[node name="ProtoEnemy21" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 560, 80 )
-
-[node name="ProtoEnemy22" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 608, 80 )
-
-[node name="ProtoEnemy23" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy18" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 224, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy24" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy19" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 272, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy25" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy20" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 320, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy26" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy21" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 368, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy27" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy22" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 416, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy23" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 464, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy24" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 512, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy25" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 560, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy26" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 608, 80 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy27" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 32, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy28" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy28" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 80, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy29" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy29" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 128, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy30" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy30" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 176, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy31" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 416, 128 )
-
-[node name="ProtoEnemy32" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 464, 128 )
-
-[node name="ProtoEnemy33" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 512, 128 )
-
-[node name="ProtoEnemy34" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 560, 128 )
-
-[node name="ProtoEnemy35" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 608, 128 )
-
-[node name="ProtoEnemy36" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy31" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 224, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy37" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy32" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 272, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy38" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy33" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 320, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy39" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy34" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 368, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy40" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy35" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 416, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy36" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 464, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy37" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 512, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy38" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 560, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy39" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 608, 128 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy40" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 32, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy41" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy41" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 80, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy42" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy42" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 128, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy43" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy43" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 176, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy44" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 416, 176 )
-
-[node name="ProtoEnemy45" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 464, 176 )
-
-[node name="ProtoEnemy46" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 512, 176 )
-
-[node name="ProtoEnemy47" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 560, 176 )
-
-[node name="ProtoEnemy48" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 608, 176 )
-
-[node name="ProtoEnemy49" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy44" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 224, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy50" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy45" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 272, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy51" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy46" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 320, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy52" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy47" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 368, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy53" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy48" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 416, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy49" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 464, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy50" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 512, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy51" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 560, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy52" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 608, 176 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy53" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 32, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy54" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy54" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 80, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy55" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy55" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 128, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy56" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy56" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 176, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy57" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 416, 224 )
-
-[node name="ProtoEnemy58" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 464, 224 )
-
-[node name="ProtoEnemy59" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 512, 224 )
-
-[node name="ProtoEnemy60" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 560, 224 )
-
-[node name="ProtoEnemy61" parent="Fleet" instance=ExtResource( 2 )]
-position = Vector2( 608, 224 )
-
-[node name="ProtoEnemy62" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy57" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 224, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy63" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy58" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 272, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy64" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy59" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 320, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
-[node name="ProtoEnemy65" parent="Fleet" instance=ExtResource( 2 )]
+[node name="Enemy60" parent="Fleet" instance=ExtResource( 1 )]
 position = Vector2( 368, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy61" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 416, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy62" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 464, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy63" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 512, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy64" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 560, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
+
+[node name="Enemy65" parent="Fleet" instance=ExtResource( 1 )]
+position = Vector2( 608, 224 )
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 2147483652
+_max_life = 3
+_color = Color( 0.623529, 0.0196078, 0.823529, 1 )
+_target = "player"
 
 [node name="Player1Spawner" type="Position2D" parent="."]
 position = Vector2( 296, 344 )

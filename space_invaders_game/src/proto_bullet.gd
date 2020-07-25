@@ -1,5 +1,6 @@
 extends Area2D
 
+export var direction = Vector2.UP
 export var _color = Color.white
 export(String, "player", "enemy") var _target = "player"
 export var _damage = 1
@@ -7,7 +8,7 @@ export var _max_speed = 300
 
 var _processed = false
 
-var direction = Vector2.UP setget direction_set
+
 
 func _ready() -> void:
 	$Sprite.modulate = _color
@@ -21,10 +22,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:	
 	position += direction * _max_speed * delta
-
-
-func direction_set(value: Vector2) -> void:
-	direction = value.normalized() if value != Vector2.ZERO else Vector2.UP
 
 
 func _on_timer_timeout() -> void:
