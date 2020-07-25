@@ -115,16 +115,19 @@ func _on_lost(_body: Node) -> void:
 func _on_CheckFleetTimer_timeout() -> void:
 	if $Game/Fleet.get_child_count() == 0:
 		$Game.visible = false
+		$Game/HUD/HUD.visible = false
 		$UI/LevelVictory.visible = true
 		get_tree().paused = true
 
 
 func _on_next_level_pressed() -> void:
+	get_tree().paused = false
 	if get_tree().change_scene(_next_level):
 		print(\"Fail to load next level: \" + _next_level)
 
 
 func _on_restart_btn_pressed() -> void:
+	get_tree().paused = false
 	if get_tree().reload_current_scene():
 		print(\"Fail to reload current level!\")
 
@@ -147,7 +150,7 @@ extents = Vector2( 320, 8 )
 [node name="ProtoScene" type="Node2D"]
 pause_mode = 2
 script = SubResource( 1 )
-_next_level = "res://src/proto_scene.tscn"
+_next_level = "res://src/game_victory.tscn"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
