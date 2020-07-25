@@ -39,6 +39,7 @@ func _ready() -> void:
 	$UI/LevelDefeat.visible = false
 	$UI/LevelVictory.visible = false
 	$Game.visible = true
+	$Game/HUD/HUD/Lifes.text = \"Lifes: %s\" % Global.life_pool
 
 
 func _add_player1() -> void:
@@ -72,11 +73,23 @@ func _add_player2() -> void:
 
 
 func _on_player1_died() -> void:
-	_add_player1()
+	Global.life_pool -= 1
+	if Global.life_pool < 0:
+		_on_lost(null)
+	else:
+		_add_player1()
+	
+	$Game/HUD/HUD/Lifes.text = \"Lifes: %s\" % Global.life_pool
 
 
 func _on_player2_died() -> void:
-	_add_player2()
+	Global.life_pool -= 1
+	if Global.life_pool < 0:
+		_on_lost(null)
+	else:
+		_add_player2()
+	
+	$Game/HUD/HUD/Lifes.text = \"Lifes: %s\" % Global.life_pool
 
 
 func _on_FireTimer_timeout() -> void:
@@ -94,6 +107,7 @@ func _on_MoveTimer_timeout() -> void:
 
 func _on_lost(_body: Node) -> void:
 	$Game.visible = false
+	$Game/HUD/HUD.visible = false
 	$UI/LevelDefeat.visible = true
 	get_tree().paused = true
 

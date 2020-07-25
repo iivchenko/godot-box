@@ -34,12 +34,16 @@ func _start() -> void:
 
 func _on_play_one_pressed() -> void:
 	Global.game_type = GAME_TYPE.ONE_PLAYER
+	Global.life_pool = 3
+
 	_menu.visible = false
 	_difficulty.visible = true
 
 
 func _on_play_two_pressed() -> void:
 	Global.game_type = GAME_TYPE.TWO_PLAYERS
+	Global.life_pool = 5
+
 	_menu.visible = false
 	_difficulty.visible = true
 

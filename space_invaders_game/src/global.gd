@@ -5,3 +5,4 @@ const GAME_DIFFICULTY = preload("res://src/game_difficulty.gd")
 
 var game_type = GAME_TYPE.ONE_PLAYER
 var game_gifficulty = GAME_DIFFICULTY.EASY
+var life_pool = 1
