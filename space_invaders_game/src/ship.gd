@@ -1,32 +1,33 @@
 extends KinematicBody2D
 
+enum Fire { MAIN, SECOND }
 signal died
 
-export(String, "player1", "player2") var _player
 export var _max_speed = 300
 export var _main_wepon_max_reload_time = 0.15
 export var _second_wepon_max_reload_time = 0.25
+export var _max_life = 1
 export var _color = Color.white
 
+var _life = 0
 var _velocity = Vector2.ZERO
 var _main_wepon_reload_time = 0.0
 var _second_wepon_reload_time = 0.0
 
-var Bullet = preload("res://src/proto_bullet.tscn")
+var Bullet = preload("res://src/proto_bullet.tscn") # TODO: Replace with weapon
 onready var _shooting_point = $ShootingPoint
 
 func _ready() -> void:
 	$Sprite.modulate = _color
+	_life = _max_life
 
 
-func _process(delta: float) -> void:
-	var left = Input.get_action_strength(_player + "_move_left")
-	var right = Input.get_action_strength(_player + "_move_right")
-	var direction = Vector2(right - left, 0.0)
-
+func move(direction: Vector2) -> void:
 	_velocity = direction * _max_speed
-	
-	if Input.is_action_just_pressed (_player + "_fire_main") and _main_wepon_reload_time <= 0.0:
+
+
+func fire(fire) -> void:
+	if fire == "main" and _main_wepon_reload_time <= 0.0:
 		_main_wepon_reload_time = _main_wepon_max_reload_time
 		var bullet = Bullet.instance()
 		bullet._color = Color.blue
@@ -35,7 +36,7 @@ func _process(delta: float) -> void:
 		bullet._target = "enemy"
 		bullet.global_position = _shooting_point.global_position
 		get_tree().root.add_child(bullet)
-	elif Input.is_action_just_pressed(_player + "_fire_second") and _second_wepon_reload_time <= 0.0:
+	elif fire == "second" and _second_wepon_reload_time <= 0.0:
 		_second_wepon_reload_time = _second_wepon_max_reload_time
 		var bullet = Bullet.instance()
 		bullet._color = Color.green
@@ -44,17 +45,21 @@ func _process(delta: float) -> void:
 		bullet._target = "enemy"
 		bullet.global_position = _shooting_point.global_position
 		get_tree().root.add_child(bullet)
-	else:
-		_main_wepon_reload_time = max(0, _main_wepon_reload_time - delta)
-		_second_wepon_reload_time = max(0, _second_wepon_reload_time - delta)
+
+
+func _process(delta: float) -> void:
+	_main_wepon_reload_time = max(0, _main_wepon_reload_time - delta)
+	_second_wepon_reload_time = max(0, _second_wepon_reload_time - delta)
 
 
 func _physics_process(_delta: float) -> void:
 	_velocity = move_and_slide(_velocity)
 
 
+func damage(damage: int) -> void:
+	_life -= damage
 	
-func damage(_damage: int) -> void:
-	queue_free()
-	
-	emit_signal("died")
+	if _life <= 0:
+		_life = 0
+		queue_free()
+		emit_signal("died")

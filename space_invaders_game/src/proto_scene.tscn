@@ -7,7 +7,8 @@ script/source = "extends Node2D
 
 const GAME_TYPE = preload(\"res://src/game_type.gd\")
 
-var PlayerScene = preload(\"res://src/proto_player.tscn\")
+var Ship = preload(\"res://src/ship.tscn\")
+var PlayerController = preload(\"res://src/player_controller.gd\")
 
 onready var _spawner1 = $Player1Spawner
 onready var _spawner2 = $Player2Spawner
@@ -26,25 +27,33 @@ func _ready() -> void:
 			_add_player2()
 	
 func _add_player1() -> void:
-	var player = PlayerScene.instance()
-	player._color = Color.yellow
-	player._player = \"player1\"
-	player.global_position = _spawner1.global_position
-	player.connect(\"died\", self, \"_on_player1_died\")
+	var ship = Ship.instance()
+	ship._color = Color.yellow
+	ship.global_position = _spawner1.global_position
+	ship.connect(\"died\", self, \"_on_player1_died\")
+	
+	var controller = PlayerController.new()
+	controller._player = \"player1\"
+	
+	ship.add_child(controller)
 	
 	var root = get_tree().root
-	root.call_deferred(\"add_child\", player)
+	root.call_deferred(\"add_child\", ship)
 
 
 func _add_player2() -> void:
-	var player = PlayerScene.instance()
-	player._color = Color.aqua
-	player._player = \"player2\"
-	player.global_position = _spawner2.global_position
-	player.connect(\"died\", self, \"_on_player2_died\")
+	var ship = Ship.instance()
+	ship._color = Color.aqua
+	ship.global_position = _spawner2.global_position
+	ship.connect(\"died\", self, \"_on_player2_died\")
+	
+	var controller = PlayerController.new()
+	controller._player = \"player2\"
+	
+	ship.add_child(controller)
 	
 	var root = get_tree().root
-	root.call_deferred(\"add_child\", player)
+	root.call_deferred(\"add_child\", ship)
 
 
 func _on_player1_died() -> void:
