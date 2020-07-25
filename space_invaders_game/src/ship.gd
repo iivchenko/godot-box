@@ -38,7 +38,7 @@ func fire(fire) -> void:
 		bullet._max_speed = 300
 		bullet._target = _target
 		bullet.global_position = _shooting_point.global_position
-		get_tree().root.add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 	elif fire == "second" and _second_wepon_reload_time <= 0.0:
 		var direction = ($ShootingPoint.global_position - global_position).normalized()
 		_second_wepon_reload_time = _second_wepon_max_reload_time
@@ -49,7 +49,7 @@ func fire(fire) -> void:
 		bullet._max_speed = 100
 		bullet._target = _target
 		bullet.global_position = _shooting_point.global_position
-		get_tree().root.add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 
 
 func _process(delta: float) -> void:
