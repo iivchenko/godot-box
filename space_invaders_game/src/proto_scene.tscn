@@ -221,6 +221,7 @@ text = "Exit"
 
 [node name="Game" type="Node2D" parent="."]
 pause_mode = 1
+visible = false
 
 [node name="Boundaries" type="Node2D" parent="Game"]
 position = Vector2( 320, 368 )
@@ -858,6 +859,50 @@ autostart = true
 
 [node name="CheckFleetTimer" type="Timer" parent="Game"]
 autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="Game"]
+
+[node name="HUD" type="Control" parent="Game/HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoresP1" type="Label" parent="Game/HUD/HUD"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 14.0
+text = "P1: 00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoresP2" type="Label" parent="Game/HUD/HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 14.0
+grow_horizontal = 0
+text = "P2: 00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lifes" type="Label" parent="Game/HUD/HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 14.0
+text = "Lifes: 00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Game/LossersArea" to="." method="_on_lost"]
 [connection signal="timeout" from="Game/FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="timeout" from="Game/CheckFleetTimer" to="." method="_on_CheckFleetTimer_timeout"]
