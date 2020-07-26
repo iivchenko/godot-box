@@ -52,4 +52,16 @@ function Run-Export {
     & "$out\godot.exe" --path . --export "Windows Desktop" .\publish\winx64\sig.exe
 }
 
+function Run-Tests {
+    param()
+
+    if (-not (Test-Path -Path "$out\godot.exe"))
+    {
+        Download-Godot
+        
+    }
+
+    & "$out\godot.exe" -d --path . test\gut.tscn
+}
+
 Export-ModuleMember -Function * -Alias *
