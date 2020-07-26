@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
 enum Fire { MAIN, SECOND }
+
 signal died
+signal fired(bullet)
 
 export var _max_speed = 300
 export var _main_wepon_max_reload_time = 0.15
@@ -24,7 +26,7 @@ func _ready() -> void:
 
 
 func move(direction: Vector2) -> void:
-	_velocity = direction * _max_speed
+	_velocity = direction.normalized() * _max_speed
 
 
 func fire(fire) -> void:
@@ -38,7 +40,7 @@ func fire(fire) -> void:
 		bullet._max_speed = 300
 		bullet._target = _target
 		bullet.global_position = _shooting_point.global_position
-		get_tree().current_scene.add_child(bullet)
+		emit_signal("fired", bullet)
 	elif fire == "second" and _second_wepon_reload_time <= 0.0:
 		var direction = ($ShootingPoint.global_position - global_position).normalized()
 		_second_wepon_reload_time = _second_wepon_max_reload_time
@@ -49,7 +51,7 @@ func fire(fire) -> void:
 		bullet._max_speed = 100
 		bullet._target = _target
 		bullet.global_position = _shooting_point.global_position
-		get_tree().current_scene.add_child(bullet)
+		emit_signal("fired", bullet)
 
 
 func _process(delta: float) -> void:

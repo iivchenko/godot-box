@@ -28,6 +28,9 @@ func _ready() -> void:
 	_next_level_btn.connect(\"pressed\", self, \"_on_next_level_pressed\")
 	_defeat_restart_btn.connect(\"pressed\", self, \"_on_restart_btn_pressed\")
 	_defeat_exit_btn.connect(\"pressed\", self, \"_on_exit_btn_pressed\")
+	for ship in $Game/Fleet.get_children():
+		ship.connect(\"fired\", self, \"_on_ship_fired\")
+		
 	match Global.game_type:
 		GAME_TYPE.ONE_PLAYER:
 			_add_player1()
@@ -47,6 +50,7 @@ func _add_player1() -> void:
 	ship._color = Color.yellow
 	ship._target = \"enemy\"
 	ship.global_position = _spawner1.global_position
+	ship.connect(\"fired\", self, \"_on_ship_fired\")
 	ship.connect(\"died\", self, \"_on_player1_died\")
 	
 	var controller = PlayerController.new()
@@ -62,6 +66,7 @@ func _add_player2() -> void:
 	ship._color = Color.aqua
 	ship._target = \"enemy\"
 	ship.global_position = _spawner2.global_position
+	ship.connect(\"fired\", self, \"_on_ship_fired\")
 	ship.connect(\"died\", self, \"_on_player2_died\")
 	
 	var controller = PlayerController.new()
@@ -70,6 +75,10 @@ func _add_player2() -> void:
 	ship.add_child(controller)
 	
 	$Game.call_deferred(\"add_child\", ship)
+
+
+func _on_ship_fired(bullet) -> void:
+	add_child(bullet) 
 
 
 func _on_player1_died() -> void:
