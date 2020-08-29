@@ -1,0 +1,54 @@
+.cards {
+    padding: 20px;
+}
+
+.card {
+    border-style: solid;
+    padding: 10px;
+    width: 300px;
+}
+
+.card img {
+    width: 300px;
+    height: 150px;
+}
+
+.card .header {
+    font-weight: bold; 
+    font-size: larger;
+}
+
+.card a.button {
+    background-color: greenyellow;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+iframe.game {
+    width: 640px;
+    height: 360px;
+}
+
+div.posts {
+    padding: 15px;
+}
+div.post {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.post .header {
+    font-weight: bold;
+}
+
+.post .date {
+    float: right;
+    color: gray;
+}
+
+.post .body {
+    font-weight: normal;
+}
