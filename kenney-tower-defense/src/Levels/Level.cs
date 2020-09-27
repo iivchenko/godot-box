@@ -1,21 +1,54 @@
 using Godot;
-using System;
+using System.Collections.Generic;
+
+public enum EnemyType
+{
+	RegularSoldier
+}
 
 public class Level : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
+	private static IDictionary<EnemyType, PackedScene> _enemyFactory;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	private Timer _timer;
+	private Position2D _spawner;
+	private Position2D _targer;
+	private Node _enemies;
+	private Navigation2D _navigagtion;
+
+	static Level()
 	{
-		
+		_enemyFactory = new Dictionary<EnemyType, PackedScene> 
+		{
+			{ EnemyType.RegularSoldier, (PackedScene)ResourceLoader.Load("res://src/Enemies/RegularSoldier.tscn") }
+		};
 	}
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+	[Export]
+	public string LevelName { get; set; } = "Dummy Level";
+
+	public override void _Ready()
+	{
+		base._Ready();
+
+		_timer = GetNode<Timer>("Game/Timer");
+		_spawner = GetNode<Position2D>("Game/Spawner");
+		_targer = GetNode<Position2D>("Game/Target");
+		_enemies = GetNode<Node>("Game/Map");
+		_navigagtion = GetNode<Navigation2D>("Game/Map/Navigation2D");
+
+		_timer.Connect("timeout", this, nameof(OnSpawn));
+	}
+
+	private void OnSpawn()
+	{
+		var path = _navigagtion.GetSimplePath(_spawner.GlobalPosition, _targer.GlobalPosition, false);
+
+		var enemy = (Enemy)_enemyFactory[EnemyType.RegularSoldier].Instance();
+
+		enemy.GlobalPosition = _spawner.GlobalPosition;
+		enemy._Init(path);
+
+		_enemies.AddChild(enemy);
+	}
 }
