@@ -25,6 +25,22 @@ window/size/width=1920
 window/size/height=1080
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "mono_debugger" )
+
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Towers"
+2d_physics/layer_4="Projectiles"
+
+[mono]
+
+debugger_agent/wait_for_debugger=true
+debugger_agent/wait_timeout=10000
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
