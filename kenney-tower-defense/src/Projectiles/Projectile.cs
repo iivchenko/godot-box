@@ -39,11 +39,16 @@ public class Projectile : Area2D
 		}
 	}
 
-	private void OnTarget(Node2D body)
+	private void OnTarget(Node body)
 	{
 		if (!_done)
 		{
 			_done = true;
+			
+			if (body is IDamagable target)
+			{
+				target.ApplyDamage(Damage);
+			}		
 
 			QueueFree();
 		}
