@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Enemy : KinematicBody2D
 {
-	private Stack<Vector2> _path;
+	private Stack<Vector2> _path = new Stack<Vector2>();
 	private Vector2 _next;
 
 	[Export]

@@ -13,6 +13,8 @@ radius = 6.43749
 height = 16.5297
 
 [node name="RegularSoldier" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2147483648
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -21,4 +23,3 @@ texture = SubResource( 1 )
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2( -1.13986, 0 )
 shape = SubResource( 2 )
-disabled = true
