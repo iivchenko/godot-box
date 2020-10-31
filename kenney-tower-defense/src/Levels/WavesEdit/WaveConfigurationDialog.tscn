@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Levels/WavesEdit/WaveConfigurationDialog.cs" type="Script" id=1]
+
+[node name="WaveConfigurationDialog" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -288.0
+margin_right = 512.0
+margin_bottom = 288.0
+custom_colors/title_color = Color( 0, 0, 0, 1 )
+window_title = "<Level> Wave Configuration"
+resizable = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelName" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 136.0
+margin_bottom = 14.0
+
+[node name="LevelNameLable" type="Label" parent="VBoxContainer/LevelName"]
+margin_right = 84.0
+margin_bottom = 14.0
+text = "Level Name: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="VBoxContainer/LevelName"]
+margin_left = 88.0
+margin_right = 129.0
+margin_bottom = 14.0
+text = "<test>"
+
+[node name="Tree" type="Tree" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 136.0
+margin_bottom = 19.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

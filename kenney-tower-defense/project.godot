@@ -27,7 +27,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "mono_debugger" )
+enabled=PoolStringArray( "InspectorRegisterPlugin", "NewResource", "mono_debugger" )
 
 [layer_names]
 
@@ -38,7 +38,6 @@ enabled=PoolStringArray( "mono_debugger" )
 
 [mono]
 
-debugger_agent/wait_for_debugger=true
 debugger_agent/wait_timeout=10000
 
 [rendering]

@@ -2,5 +2,5 @@ using Godot;
 
 public interface IDamagable
 {
-    void ApplyDamage(int damage);
+	void ApplyDamage(int damage);
 } 

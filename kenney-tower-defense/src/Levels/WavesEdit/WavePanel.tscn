@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="WaveEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Hello"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_top = 19.0
+margin_right = 88.0
+margin_bottom = 59.0
+text = "Hello my dear frinend"
