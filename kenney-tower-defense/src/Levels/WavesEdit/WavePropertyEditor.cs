@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 
 public sealed class WavePropertyEditor : EditorProperty
@@ -23,3 +24,4 @@ public sealed class WavePropertyEditor : EditorProperty
 		_dialog.Popup_();
 	}
 }
+#endif

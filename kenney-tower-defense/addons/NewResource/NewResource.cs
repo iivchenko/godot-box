@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 using System;
 
@@ -24,3 +25,4 @@ public class NewResource : EditorPlugin
 		//RemoveCustomType("WaveResource");
 	}
 }
+#endif

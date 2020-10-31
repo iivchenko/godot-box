@@ -27,9 +27,10 @@ public class Level : Node2D
 	[Export]
 	public string LevelName { get; set; } = "Dummy Level";
 
+#if TOOLS
 	[Export(PropertyHint.ResourceType, "NewResource")]
 	public NewResource Waves { get; set; }
-
+#endif
 	public override void _Ready()
 	{
 		base._Ready();

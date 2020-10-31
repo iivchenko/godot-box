@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 
 public sealed class WaveInspectorPlugin : EditorInspectorPlugin
@@ -19,3 +20,4 @@ public sealed class WaveInspectorPlugin : EditorInspectorPlugin
 		return false;
 	}
 }
+#endif

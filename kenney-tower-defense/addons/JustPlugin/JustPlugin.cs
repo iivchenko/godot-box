@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 using System;
 
@@ -20,3 +21,4 @@ public class JustPlugin : EditorPlugin
 		RemoveCustomType("MyButton");
 	}
 }
+#endif

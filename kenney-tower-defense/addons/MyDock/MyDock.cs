@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 using System;
 
@@ -21,3 +22,4 @@ public class MyDock : EditorPlugin
 		dock.Free();
 	}
 }
+#endif

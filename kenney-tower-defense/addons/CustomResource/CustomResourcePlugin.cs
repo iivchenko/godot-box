@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 using Godot.Collections;
 
@@ -30,3 +31,4 @@ public class CustomResourcePlugin : EditorImportPlugin
         return "SpatialMaterial";
     }
 }
+#endif
