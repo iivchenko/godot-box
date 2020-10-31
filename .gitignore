@@ -1,6 +1,12 @@
 # Godot
 .import/
 .tools/
+.mono/
+.vs/
 publish/
+
+#vs code
+.vscode/
+.ionide/
 
 Thumbs.db
