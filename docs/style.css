@@ -38,6 +38,7 @@ div.posts {
 div.post {
     border: 1px solid black;
     padding: 20px;
+    margin-bottom: 3rem;
 }
 
 .post .header {
