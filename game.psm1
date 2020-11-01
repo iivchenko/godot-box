@@ -62,7 +62,7 @@ function Run-Export {
         "WINX64"
         {
             New-Item -ItemType Directory -Force -Path "$publish\$Game\winx64\"
-            & $godot --path . --export "Windows Desktop" "$publish\$Game\winx64\game.exe"
+            & $godot --path . --export "WINX64" "$publish\$Game\winx64\game.exe"
         }
         
         "HTML5"
