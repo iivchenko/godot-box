@@ -27,7 +27,7 @@ public class Ship : KinematicBody2D
 	{
 		Rotation -= RotationSpeed * delta;
 
-		_direction = new Vector2(Mathf.Sin(Rotation), Mathf.Cos(Rotation));
+		_direction = new Vector2(Mathf.Sin(Rotation), -Mathf.Cos(Rotation));
 	}
 
 	public void TurnRight(float delta)
