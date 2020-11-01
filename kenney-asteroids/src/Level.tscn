@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/ships/Ship01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ships/Controllers/Player/Player01Controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level.cs" type="Script" id=3]
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Ship01" parent="." instance=ExtResource( 1 )]
 position = Vector2( 384.31, 323.328 )
 MaxSpeed = 500
+RotationSpeed = 3
 
 [node name="Player01Controller" parent="Ship01" instance=ExtResource( 2 )]
