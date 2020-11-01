@@ -1,1 +1,1 @@
-powershell -command "Import-Module .\game.psm1; Run-Game"
+powershell -command "Import-Module ..\game.psm1; Import-Module .\config.psm1; Run-Game -Version $GodotVersion;"
